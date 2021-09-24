@@ -37,15 +37,25 @@ public class Contact {
 //        return ;
 //    }
 
-    public void readFileAndOutput (Path pathToFile) {
-        List<String> linesInTheFile = new ArrayList<>();
+    public HashMap<String, String> readFileAndOutput (Path pathToFile) { //take in all the names and number form contacts.txt
+        List<String> linesInTheFile = new ArrayList<>();// new List<String> named linesInTheFile
         try {
-            linesInTheFile = Files.readAllLines(pathToFile);
+            linesInTheFile = Files.readAllLines(pathToFile);//reads all the line in the contacts.txt and returns a List<String>
         } catch (IOException ioe){
             ioe.printStackTrace();
         }
+
+        HashMap<String, String> contacts = new HashMap<>();// creates a new HashMap named contacts
+
         for (String line : linesInTheFile){
-            System.out.println(line);
+            String[] contactArray = line.split(":");//splits contactArray by :
+            contacts.put(contactArray[0],contactArray[1]);// puts the contactArray[0](name) into the HashMap contact which is the key and puts contactArray[1](phone number) into the HashMap contact which is the value
         }
+        return contacts;
+
     }
+
+
+
+
 }
