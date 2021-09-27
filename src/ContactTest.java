@@ -50,7 +50,7 @@ public class ContactTest {
         System.out.println("Enter a phone number: ");
         String phoneNumber = sc.next();
         boolean enterContactInfo = true;
-        if (contacts.get(name) != null) {//if the name matches any on the contacts keys it will run the following code
+        if (contacts.get(name) != null) { //if the name matches any on the contacts keys it will run the following code
             System.out.println("There's already a contact named " + name + ". Do you want to overwrite it? (Yes/No)");
             String yesOrNo = sc.next();
             if (yesOrNo.equalsIgnoreCase("no")) {// if no will make enterContactInfo false it will return you to the main menu
@@ -102,8 +102,7 @@ public class ContactTest {
     public static String searchContact(Scanner sc) {
         System.out.println("Enter a name: ");
         String userInput = sc.next().trim();
-        try {
-            //.trim() trims away any spaces
+        try {//.trim() trims away any spaces
             String phoneNumber = contacts.get(userInput);//contacts.get(userInput) is the same as saying contacts.get(key)
             if (phoneNumber == null) {
                 throw new Exception("");
@@ -142,6 +141,4 @@ public class ContactTest {
 
         listOptions();
     }
-
-
 }
